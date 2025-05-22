@@ -52,7 +52,7 @@ const createPageURL = (pageNumber: number | string) => {
           href={createPageURL(currentPage + 1)}
           isDisabled={currentPage >= totalPages}
         />
-      </div> */}
+      </div>
     </>
   );
 }
@@ -84,7 +84,7 @@ function PaginationNumber({
   ) : (
     <Link href={href} className={className}>
       {page}
-    </Link> */}
+    </Link>
   );
 }
 
