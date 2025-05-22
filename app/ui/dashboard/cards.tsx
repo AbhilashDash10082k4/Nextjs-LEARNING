@@ -1,9 +1,7 @@
-import {
-  BanknotesIcon,
+import {BanknotesIcon,
   ClockIcon,
   UserGroupIcon,
-  InboxIcon,
-} from '@heroicons/react/24/outline';
+  InboxIcon } from '@heroicons/react/24/solid'; 
 import { lusitana } from '@/app/ui/font';
 import { fetchCardData } from '@/app/lib/data';
 const iconMap = {
