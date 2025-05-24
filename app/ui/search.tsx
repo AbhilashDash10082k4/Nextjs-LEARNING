@@ -2,7 +2,6 @@
 import { useDebouncedCallback } from 'use-debounce';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
-import { fetchInvoicesPages } from '@/app/lib/data';
 
 export default function Search({ placeholder }: { placeholder: string }) {
 
