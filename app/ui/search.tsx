@@ -6,14 +6,20 @@ import { fetchInvoicesPages } from '@/app/lib/data';
 
 export default function Search({ placeholder }: { placeholder: string }) {
 
-  const searchParams = useSearchParams(); //the query that will be searched by the input
+  const searchParams = useSearchParams(); //the params of the URL e.g - '/dashboard/invoices?customer_id=1&purchases=100' - extracts the URL seach params- {customer_id:1, purchases:100}
+  
   const {replace} = useRouter();
-  const pathname = usePathname() //current pathname
+  
+  const pathname = usePathname() //current pathname  -'dashbaord/invoices from '/dashboard/invoices?customer_id=1&purchases=100'
+  
   const handleSearch = useDebouncedCallback((term: string) => { //capturing the user input by setting handleSearch(e.target.value)
     console.log(`Searching... ${term}`);
-    const params = new URLSearchParams(searchParams); //URLSearchParams is a Web API provides methods for manipulating URL query parameters - extracts the query params as normal string, params = original query params present in the URL
+  
+    const params = new URLSearchParams(searchParams); //URLSearchParams is a Web API provides methods for manipulating URL query parameters - extracts the query params as normal string, params = original query params present in the URL, converts the object of query params -{customer_id:1, purchases:100} to normal string - ?customer_id=1&purchases=100
+  
     params.set('page', '1');
     //update the query params based on the search params
+  
     if(term) {
       params.set('query', term);
     }else {
@@ -21,6 +27,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     }
     replace(`${pathname}?${params.toString()}`); //params.toSring - translates the user query into URL friendly format and replaces the current pathname with it
   },300)
+  
   return (
     <div className="relative flex flex-1 flex-shrink-0">
       <label htmlFor="search" className="sr-only">
