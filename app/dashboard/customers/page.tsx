@@ -1,13 +1,14 @@
 import { fetchFilteredCustomers } from '@/app/lib/data';
-import { customers } from '@/app/lib/placeholder-data'
 import CustomersTable from '@/app/ui/customers/table'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 async function CustomerPage() {
   const customers = await fetchFilteredCustomers("");
   return (
     <div>
+      <Suspense>
       <CustomersTable customers={customers}/>
+      </Suspense>
     </div>
   )
 }
