@@ -1,9 +1,10 @@
+import CustomersTable from '@/app/ui/customers/table'
 import React from 'react'
 
 function CustomerPage() {
   return (
     <div>
-      Customers
+      {/* <CustomersTable customers={customers}/> */}
     </div>
   )
 }
